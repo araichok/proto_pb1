@@ -23,7 +23,7 @@ jobs:
           go-version: 1.23
 
       - name: Install Protobuf Compiler
-        run: git clone https://github.com/araichok/proto.git
+        run: https://github.com/araichok/proto.git
           sudo apt-get update
           sudo apt-get install -y protobuf-compiler
 
@@ -35,11 +35,11 @@ jobs:
 
       - name: Clone Proto Files Repository
         run: |
-          git clone https://github.com/shynggys9219/ap2-apis-user-service.git
+          git clone https://github.com/araichok/proto.git
 
       - name: Generate Go Code from Proto Files
         run: |
-          cd ap2-apis-user-service
+          cd proto
 
           echo "Directory structure:"
           find . -type d
@@ -76,8 +76,8 @@ jobs:
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          cd ap2-apis-user-service
-          git clone https://github.com/shynggys9219/ap2-apis-gen-user-service.git
+          cd proto
+          git clone https://github.com/araichok/proto_pb1.git
           
           # Ensure the target directories exist
           mkdir -p ap2-apis-gen-user-service/base/frontend/v1
@@ -91,10 +91,10 @@ jobs:
           cp base/frontend/v1/*.pb.go ap2-apis-gen-user-service/base/frontend/v1/
           cp service/frontend/client/v1/*.pb.go ap2-apis-gen-user-service/service/frontend/client/v1/
           
-          cd ap2-apis-gen-user-service
+          cd proto_pb1
           
-          git config --global user.name "shynggys9219"
-          git config --global user.email "alshynggys@mail.ru"
+          git config --global user.name "araichok"
+          git config --global user.email "230082@astanait.edu.kz"
           
           git add .
           git add .
